@@ -12,7 +12,7 @@ const Backtesting = () => {
   useEffect(() => {
     const fetchBacktestingData = async () => {
       try {
-        const response = await axios.get("http://localhost:8000/api/backtesting/");
+        const response = await axios.get("https://stocks-back-end.onrender.com/api/backtesting/");
         setBacktestingResults(response.data.backtesting_results || []);
       } catch (error) {
         console.error("Error fetching backtesting data", error);

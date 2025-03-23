@@ -10,7 +10,7 @@ const SentimentAnalysis = () => {
   useEffect(() => {
     const fetchSentiments = async () => {
       try {
-        const response = await axios.get("http://localhost:8000/api/sentiments/");
+        const response = await axios.get("https://stocks-back-end.onrender.com/api/sentiments/");
         console.log(response.data)
         setSentiments(response.data.sentiments || []);
       } catch (error) {

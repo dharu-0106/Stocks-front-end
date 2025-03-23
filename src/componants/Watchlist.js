@@ -13,10 +13,10 @@ const Watchlist = ({ userId }) => {
       try {
         let response;
         if (userId) {
-          response = await axios.get(`http://localhost:8000/api/watchlist/${userId}/`);
+          response = await axios.get(`https://stocks-back-end.onrender.com/api/watchlist/${userId}/`);
           setWatchlist(response.data.watchlist || []);
         } else {
-          response = await axios.get("http://localhost:8000/api/watchlist/all/");
+          response = await axios.get("https://stocks-back-end.onrender.com/api/watchlist/all/");
           setWatchlist(response.data.watchlist || []);
         }
       } catch (error) {
@@ -31,7 +31,7 @@ const Watchlist = ({ userId }) => {
   const addStock = async () => {
     if (!stock.trim()) return;
     try {
-      const response = await axios.post("http://localhost:8000/api/watchlist/add/", {
+      const response = await axios.post("https://stocks-back-end.onrender.com/api/watchlist/add/", {
         user_id: userId,
         stock
       });
@@ -44,7 +44,7 @@ const Watchlist = ({ userId }) => {
 
   const removeStock = async (stockToRemove) => {
     try {
-      const response = await axios.post("http://localhost:8000/api/watchlist/remove/", {
+      const response = await axios.post("https://stocks-back-end.onrender.com/api/watchlist/remove/", {
         user_id: userId,
         stock: stockToRemove
       });
